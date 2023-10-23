@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <h1>CRUD App</h1>
+
+    <h2>Data</h2>
+    <table>
+        <tr>
+            <th class="table-header">ID</th>
+            <th class="table-header">Name</th>
+            <th class="table-header">Age</th>
+            <th class="table-header">Gender</th>
+            <th class="table-header">Weight</th>
+            <th class="table-header">Height</th>
+            <th class="table-header">Action</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td class="table-data">{{ row[0] }}</td>
+            <td class="table-data">{{ row[1] }}</td>
+            <td class="table-data">{{ row[2] }}</td>
+            <td class="table-data">{{ row[3] }}</td>
+            <td class="table-data">{{ row[4] }}</td>
+            <td class="table-data">{{ row[5] }}</td>
+            <td class="table-data">{{ row[6] }}</td>
+            <td class="table-data"><a href="#">Edit</a> | <a href="#">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <h2>Add Data</h2>
+    <form method="POST" action="/add">
+        <input type="text" name="name" placeholder="Name">
+        <button type="submit">Add</button>
+    </form>
+</body>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="static/js/script.js"></script>
+
+
+</html>

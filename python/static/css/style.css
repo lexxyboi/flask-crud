@@ -1,6 +1,15 @@
-.table-header {
-    padding: 5px; /* Adjust the padding value as needed to control the spacing between header cells */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto; /* Center the table horizontally */
 }
-.table-data {
-    padding: 5px; /* Adjust the padding value as needed to control the spacing between header cells */
+
+th, td {
+    border: 3px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-header {
+    background-color: #f2f2f2;
 }

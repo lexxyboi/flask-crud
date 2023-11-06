@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="add-data-wrapper">
+        <h2>Add Data</h2>
+        <form method="POST" action="/add">
+            <input type="text" name="name" placeholder="Name">
+            <input type="number" name="age" placeholder="Age">
+            <input type="text" name="gender" placeholder="Gender">
+            <input type="number" name="weight" placeholder="Weight">
+            <input type="number" name="height" placeholder="Height">
+            <button class="common-btn" type="submit">Add</button>
+        </form>
+    </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="static/js/script.js"></script>
+
+</html>

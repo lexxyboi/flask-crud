@@ -11,53 +11,50 @@
 </head>
 
 <body>
-    <h1>CRUD App</h1>
+    <div class="dashboard">
+        <h2>CRUD App</h2>
 
-    <h2>Data</h2>
-    <table>
-        <tr>
-            <th class="table-header">ID</th>
-            <th class="table-header">Name</th>
-            <th class="table-header">Age</th>
-            <th class="table-header">Gender</th>
-            <th class="table-header">Weight</th>
-            <th class="table-header">Height</th>
-            <th class="table-header">Action</th>
-        </tr>
-        {% for row in data %}
-        <tr>
-            <td class="table-data">{{ row[0] }}</td>
-            <td class="table-data">{{ row[1] }}</td>
-            <td class="table-data">{{ row[2] }}</td>
-            <td class="table-data">{{ row[3] }}</td>
-            <td class="table-data">{{ row[4] }}</td>
-            <td class="table-data">{{ row[5] }}</td>
-            <td class="table-data">
-                <form method="post" action="{{ url_for('delete_data', id=row[0]) }}">
-                    <input type="hidden" name="id" value="{{ row[0] }}">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
+    </div>
+    <div class="table-wrapper">
+        <h2></h2>
+        <a href="/adddata" class="btn btn-primary">Add Data</a>
+        <table>
+            <tr>
+                <th class="table-header">ID</th>
+                <th class="table-header">Name</th>
+                <th class="table-header">Age</th>
+                <th class="table-header">Gender</th>
+                <th class="table-header">Weight</th>
+                <th class="table-header">Height</th>
+                <th class="table-header">Action</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td class="table-data">{{ row[0] }}</td>
+                <td class="table-data">{{ row[1] }}</td>
+                <td class="table-data">{{ row[2] }}</td>
+                <td class="table-data">{{ row[3] }}</td>
+                <td class="table-data">{{ row[4] }}</td>
+                <td class="table-data">{{ row[5] }}</td>
+                <td class="table-data">
+                    <form method="post" action="{{ url_for('delete_data', id=row[0]) }}">
+                        <input type="hidden" name="id" value="{{ row[0] }}">
+                        <button class="delbtn" type="submit">Delete</button>
+                        <!--edit btn-->
+                        <a class="editbtn" href="{{ url_for('edit_data', id=row[0]) }}"
+                            class="btn btn-primary common-btn">Edit</a>
 
-    </table>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
 
-    <h2>Add Data</h2>
-    <form method="POST" action="/add">
-        <input type="text" name="name" placeholder="Name">
-        <input type="number" name="age" placeholder="Age">
-        <input type="text" name="gender" placeholder="Gender">
-        <input type="number" name="weight" placeholder="Weight">
-        <input type="number" name="height" placeholder="Height">
-        <button type="submit">Add</button>
-    </form>
-
+        </table>
+    </div>
 </body>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 <script src="static/js/script.js"></script>
-
 
 </html>

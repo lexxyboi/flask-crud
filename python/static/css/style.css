@@ -13,3 +13,150 @@ th, td {
 .table-header {
     background-color: #f2f2f2;
 }
+
+.add-data-wrapper {
+  background-color: #f2f2f2;
+  padding: 30px;
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  width: 50%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+}
+
+.add-data-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-data-wrapper input {
+  width: 60%; /* Make sure the inputs use the full width of the container */
+  margin: 20px auto;
+}
+
+
+.add-data-wrapper h2{
+  margin: auto;
+}
+
+body {
+    background-color: #f0f0f0;
+  }
+  
+.dashboard {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+  }
+.dashboard h2 {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.table-wrapper .btn-primary {
+  margin-left: 1rem; /* Use 'rem' for relative units based on the font size */
+  position: relative;
+  background-color: #007bff;
+}
+
+
+.table-wrapper h2 {
+   font-size: 30px;
+   margin-left: 40px;
+}
+
+/* Define the styles for the edit button */
+.editbtn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove underline for links */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover state for the button */
+.editbtn:hover {
+  background-color: rgb(22, 98, 179); /* Change the background color on hover */
+}
+
+.delbtn{
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: rgb(255, 0, 0); /* Button background color */
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove underline for links */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover state for the button */
+.delbtn:hover {
+  background-color: #b30000; /* Change the background color on hover */
+}
+
+.edit-data-wrapper {
+  background-color: #f2f2f2;
+  padding: 30px;
+  border: 2px solid #ccc;
+  margin-bottom: 30px;
+  width: 50%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+}
+
+.edit-data-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-data-wrapper input {
+  margin-bottom: 30px;
+}
+
+.edit-data-wrapper h2 {
+  margin: auto;
+}
+
+/* Additional style for the "Update" button within the edit-data-wrapper */
+.edit-data-wrapper button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Hover state for the "Update" button */
+.edit-data-wrapper button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Button style for both Edit and Update buttons */
+.common-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 8rem;
+  margin: auto;
+}
+
+/* Hover state for the common button */
+.common-btn:hover {
+  background-color: #0056b3;
+}
+
+
+  

@@ -36,27 +36,13 @@ def add_data():
     cursor.close()
     return redirect(url_for('index'))
 
-# mao ni ang pang edit
+
+# mao ni ang mu redirect sa add data
 
 
-@app.route('/edit/<int:id>', methods=['GET', 'POST'])
-def edit_data(id):
-    if request.method == 'GET':
-        # Retrieve the data for editing from the database based on the 'id'
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM `personinfo` WHERE id = %s", (id,))
-        data_to_edit = cursor.fetchone()
-        cursor.close()
-        return render_template('edit.html', data=data_to_edit)
-    elif request.method == 'POST':
-        # Update the data in the database based on the 'id'
-        new_name = request.form.get('name')
-        cursor = db.cursor()
-        cursor.execute(
-            "UPDATE personinfo SET name = %s WHERE id = %s", (new_name, id))
-        db.commit()
-        cursor.close()
-        return redirect(url_for('index'))
+@app.route('/adddata', methods=['GET'])
+def redirect_add():
+    return render_template('add.html')
 
 # mao ni ang pang delete
 
@@ -69,6 +55,51 @@ def delete_data(id):
     db.commit()
     cursor.close()
     return redirect(url_for('index'))
+
+# mao ni pang edit
+
+
+@app.route('/editdata/<int:id>', methods=['GET', 'POST'])
+def edit_data(id):
+    # Retrieve data for the specified row ID
+    data = get_data_by_id(id)
+
+    if request.method == 'GET':
+        # Display the edit form with existing data
+        return render_template('editdata.html', id=id, data=data)
+
+    elif request.method == 'POST':
+        # Process the edit request and update the data
+        update_data(id, request.form)
+        # Redirect to the 'index' route, not '/table'
+        return redirect(url_for('index'))
+
+
+def get_data_by_id(id):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM `personinfo` WHERE person_ID = %s", (id,))
+    data = cursor.fetchone()
+    cursor.close()
+    return data
+
+
+def update_data(id, form):
+    name = form['name']
+    age = form['age']
+    gender = form['gender']
+    weight = form['weight']
+    height = form['height']
+
+    cursor = db.cursor()
+    cursor.execute("UPDATE personinfo SET name = %s, age = %s, gender = %s, weight = %s, height = %s WHERE person_ID = %s",
+                   (name, age, gender, weight, height, id))
+    db.commit()
+    cursor.close()
+
+
+@app.route('/editdata', methods=['GET'])
+def redirect_edit():
+    return render_template('editdata.html', id=id, data=data)
 
 
 if __name__ == "__main__":

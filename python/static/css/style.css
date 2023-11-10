@@ -5,13 +5,18 @@ table {
 }
 
 th, td {
-    border: 3px solid #ddd;
+    border: 1px solid #999999;
     padding: 10px;
     text-align: left;
 }
 
 .table-header {
     background-color: #f2f2f2;
+}
+
+/* Apply hover effect to table row */
+table tr:hover {
+  background-color: #dddddd; /* Change the background color on hover */
 }
 
 .add-data-wrapper {
